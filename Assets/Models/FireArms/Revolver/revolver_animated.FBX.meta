@@ -1,0 +1,383 @@
+fileFormatVersion: 2
+guid: 54dbea57d51db3540ac745c53e916fa6
+timeCreated: 1438395164
+licenseType: Store
+ModelImporter:
+  serializedVersion: 18
+  fileIDToRecycleName:
+    100000: Dummy_Barrel
+    100002: Dummy_Bullet01
+    100004: Dummy_Bullet02
+    100006: Dummy_Bullet03
+    100008: Dummy_Bullet04
+    100010: Dummy_Bullet05
+    100012: Dummy_canon
+    100014: Dummy_Dog
+    100016: Dummy_Extrator
+    100018: Dummy_Fx_Fire
+    100020: Dummy_Fx_Shells
+    100022: Dummy_Root_USP
+    100024: Dummy_Trigger
+    100026: GR_Alyosha_HG_1ST
+    100028: //RootNode
+    400000: Dummy_Barrel
+    400002: Dummy_Bullet01
+    400004: Dummy_Bullet02
+    400006: Dummy_Bullet03
+    400008: Dummy_Bullet04
+    400010: Dummy_Bullet05
+    400012: Dummy_canon
+    400014: Dummy_Dog
+    400016: Dummy_Extrator
+    400018: Dummy_Fx_Fire
+    400020: Dummy_Fx_Shells
+    400022: Dummy_Root_USP
+    400024: Dummy_Trigger
+    400026: GR_Alyosha_HG_1ST
+    400028: //RootNode
+    4300000: GR_Alyosha_HG_1ST
+    7400000: LastRecoil
+    7400002: AimRecoil
+    7400004: Reload
+    7400006: Reload_empty
+    7400008: Empty
+    9500000: //RootNode
+    13700000: GR_Alyosha_HG_1ST
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: LastRecoil
+      takeName: Take 001
+      firstFrame: 0
+      lastFrame: 20
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Dummy_Root_USP
+        weight: 1
+      - path: Dummy_Root_USP/Dummy_canon
+        weight: 1
+      - path: Dummy_Root_USP/Dummy_canon/Dummy_Barrel
+        weight: 1
+      - path: Dummy_Root_USP/Dummy_canon/Dummy_Barrel/Dummy_Extrator
+        weight: 1
+      - path: Dummy_Root_USP/Dummy_canon/Dummy_Barrel/Dummy_Extrator/Dummy_Bullet01
+        weight: 1
+      - path: Dummy_Root_USP/Dummy_canon/Dummy_Barrel/Dummy_Extrator/Dummy_Bullet02
+        weight: 1
+      - path: Dummy_Root_USP/Dummy_canon/Dummy_Barrel/Dummy_Extrator/Dummy_Bullet03
+        weight: 1
+      - path: Dummy_Root_USP/Dummy_canon/Dummy_Barrel/Dummy_Extrator/Dummy_Bullet04
+        weight: 1
+      - path: Dummy_Root_USP/Dummy_canon/Dummy_Barrel/Dummy_Extrator/Dummy_Bullet05
+        weight: 1
+      - path: Dummy_Root_USP/Dummy_canon/Dummy_Fx_Shells
+        weight: 1
+      - path: Dummy_Root_USP/Dummy_Dog
+        weight: 1
+      - path: Dummy_Root_USP/Dummy_Fx_Fire
+        weight: 1
+      - path: Dummy_Root_USP/Dummy_Trigger
+        weight: 1
+      - path: GR_Alyosha_HG_1ST
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: AimRecoil
+      takeName: Take 001
+      firstFrame: 20
+      lastFrame: 41
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Dummy_Root_USP
+        weight: 1
+      - path: Dummy_Root_USP/Dummy_canon
+        weight: 1
+      - path: Dummy_Root_USP/Dummy_canon/Dummy_Barrel
+        weight: 1
+      - path: Dummy_Root_USP/Dummy_canon/Dummy_Barrel/Dummy_Extrator
+        weight: 1
+      - path: Dummy_Root_USP/Dummy_canon/Dummy_Barrel/Dummy_Extrator/Dummy_Bullet01
+        weight: 1
+      - path: Dummy_Root_USP/Dummy_canon/Dummy_Barrel/Dummy_Extrator/Dummy_Bullet02
+        weight: 1
+      - path: Dummy_Root_USP/Dummy_canon/Dummy_Barrel/Dummy_Extrator/Dummy_Bullet03
+        weight: 1
+      - path: Dummy_Root_USP/Dummy_canon/Dummy_Barrel/Dummy_Extrator/Dummy_Bullet04
+        weight: 1
+      - path: Dummy_Root_USP/Dummy_canon/Dummy_Barrel/Dummy_Extrator/Dummy_Bullet05
+        weight: 1
+      - path: Dummy_Root_USP/Dummy_canon/Dummy_Fx_Shells
+        weight: 1
+      - path: Dummy_Root_USP/Dummy_Dog
+        weight: 1
+      - path: Dummy_Root_USP/Dummy_Fx_Fire
+        weight: 1
+      - path: Dummy_Root_USP/Dummy_Trigger
+        weight: 1
+      - path: GR_Alyosha_HG_1ST
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Reload
+      takeName: Take 001
+      firstFrame: 41
+      lastFrame: 72
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Dummy_Root_USP
+        weight: 1
+      - path: Dummy_Root_USP/Dummy_canon
+        weight: 1
+      - path: Dummy_Root_USP/Dummy_canon/Dummy_Barrel
+        weight: 1
+      - path: Dummy_Root_USP/Dummy_canon/Dummy_Barrel/Dummy_Extrator
+        weight: 1
+      - path: Dummy_Root_USP/Dummy_canon/Dummy_Barrel/Dummy_Extrator/Dummy_Bullet01
+        weight: 1
+      - path: Dummy_Root_USP/Dummy_canon/Dummy_Barrel/Dummy_Extrator/Dummy_Bullet02
+        weight: 1
+      - path: Dummy_Root_USP/Dummy_canon/Dummy_Barrel/Dummy_Extrator/Dummy_Bullet03
+        weight: 1
+      - path: Dummy_Root_USP/Dummy_canon/Dummy_Barrel/Dummy_Extrator/Dummy_Bullet04
+        weight: 1
+      - path: Dummy_Root_USP/Dummy_canon/Dummy_Barrel/Dummy_Extrator/Dummy_Bullet05
+        weight: 1
+      - path: Dummy_Root_USP/Dummy_canon/Dummy_Fx_Shells
+        weight: 1
+      - path: Dummy_Root_USP/Dummy_Dog
+        weight: 1
+      - path: Dummy_Root_USP/Dummy_Fx_Fire
+        weight: 1
+      - path: Dummy_Root_USP/Dummy_Trigger
+        weight: 1
+      - path: GR_Alyosha_HG_1ST
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Reload_empty
+      takeName: Take 001
+      firstFrame: 72
+      lastFrame: 132
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Dummy_Root_USP
+        weight: 1
+      - path: Dummy_Root_USP/Dummy_canon
+        weight: 1
+      - path: Dummy_Root_USP/Dummy_canon/Dummy_Barrel
+        weight: 1
+      - path: Dummy_Root_USP/Dummy_canon/Dummy_Barrel/Dummy_Extrator
+        weight: 1
+      - path: Dummy_Root_USP/Dummy_canon/Dummy_Barrel/Dummy_Extrator/Dummy_Bullet01
+        weight: 1
+      - path: Dummy_Root_USP/Dummy_canon/Dummy_Barrel/Dummy_Extrator/Dummy_Bullet02
+        weight: 1
+      - path: Dummy_Root_USP/Dummy_canon/Dummy_Barrel/Dummy_Extrator/Dummy_Bullet03
+        weight: 1
+      - path: Dummy_Root_USP/Dummy_canon/Dummy_Barrel/Dummy_Extrator/Dummy_Bullet04
+        weight: 1
+      - path: Dummy_Root_USP/Dummy_canon/Dummy_Barrel/Dummy_Extrator/Dummy_Bullet05
+        weight: 1
+      - path: Dummy_Root_USP/Dummy_canon/Dummy_Fx_Shells
+        weight: 1
+      - path: Dummy_Root_USP/Dummy_Dog
+        weight: 1
+      - path: Dummy_Root_USP/Dummy_Fx_Fire
+        weight: 1
+      - path: Dummy_Root_USP/Dummy_Trigger
+        weight: 1
+      - path: GR_Alyosha_HG_1ST
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Empty
+      takeName: Take 001
+      firstFrame: 132
+      lastFrame: 140
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Dummy_Root_USP
+        weight: 1
+      - path: Dummy_Root_USP/Dummy_canon
+        weight: 1
+      - path: Dummy_Root_USP/Dummy_canon/Dummy_Barrel
+        weight: 1
+      - path: Dummy_Root_USP/Dummy_canon/Dummy_Barrel/Dummy_Extrator
+        weight: 1
+      - path: Dummy_Root_USP/Dummy_canon/Dummy_Barrel/Dummy_Extrator/Dummy_Bullet01
+        weight: 1
+      - path: Dummy_Root_USP/Dummy_canon/Dummy_Barrel/Dummy_Extrator/Dummy_Bullet02
+        weight: 1
+      - path: Dummy_Root_USP/Dummy_canon/Dummy_Barrel/Dummy_Extrator/Dummy_Bullet03
+        weight: 1
+      - path: Dummy_Root_USP/Dummy_canon/Dummy_Barrel/Dummy_Extrator/Dummy_Bullet04
+        weight: 1
+      - path: Dummy_Root_USP/Dummy_canon/Dummy_Barrel/Dummy_Extrator/Dummy_Bullet05
+        weight: 1
+      - path: Dummy_Root_USP/Dummy_canon/Dummy_Fx_Shells
+        weight: 1
+      - path: Dummy_Root_USP/Dummy_Dog
+        weight: 1
+      - path: Dummy_Root_USP/Dummy_Fx_Fire
+        weight: 1
+      - path: Dummy_Root_USP/Dummy_Trigger
+        weight: 1
+      - path: GR_Alyosha_HG_1ST
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
