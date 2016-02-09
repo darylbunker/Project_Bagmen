@@ -224,89 +224,89 @@ public class playerControls : MonoBehaviour {
         {
             if (ySpeed > 0)
             {
-                if (Input.mousePosition.x < left)
+                if ((gameObject.transform.eulerAngles.y >= 345.0f) || (gameObject.transform.eulerAngles.y <= 15.0f))
                 {
-                    gameObject.GetComponent<Animator>().SetInteger("speed", 2);
+                    gameObject.GetComponent<Animator>().SetInteger("speed", 1);
                 }
-                else if (Input.mousePosition.x > right)
+                else if (gameObject.transform.eulerAngles.y >= 165.0f && gameObject.transform.eulerAngles.y <= 195.0f)
                 {
-                    gameObject.GetComponent<Animator>().SetInteger("speed", -2);
+                    gameObject.GetComponent<Animator>().SetInteger("speed", -1);
                 }
                 else
                 {
-                    if (Input.mousePosition.y >= Screen.height / 2.0f)
+                    if (gameObject.transform.eulerAngles.y <= 180.0f)
                     {
-                        gameObject.GetComponent<Animator>().SetInteger("speed", 1);
+                        gameObject.GetComponent<Animator>().SetInteger("speed", 2);
                     }
                     else
                     {
-                        gameObject.GetComponent<Animator>().SetInteger("speed", -1);
+                        gameObject.GetComponent<Animator>().SetInteger("speed", -2);
                     }
                 }
             }
             else if (ySpeed < 0)
             {
-                if (Input.mousePosition.x < left)
+                if ((gameObject.transform.eulerAngles.y >= 345.0f) || (gameObject.transform.eulerAngles.y <= 15.0f))
                 {
-                    gameObject.GetComponent<Animator>().SetInteger("speed", -2);
+                    gameObject.GetComponent<Animator>().SetInteger("speed", -1);
                 }
-                else if (Input.mousePosition.x > right)
+                else if (gameObject.transform.eulerAngles.y >= 165.0f && gameObject.transform.eulerAngles.y <= 195.0f)
                 {
-                    gameObject.GetComponent<Animator>().SetInteger("speed", 2);
+                    gameObject.GetComponent<Animator>().SetInteger("speed", 1);
                 }
                 else
                 {
-                    if (Input.mousePosition.y >= Screen.height / 2.0f)
+                    if (gameObject.transform.eulerAngles.y <= 180.0f)
                     {
-                        gameObject.GetComponent<Animator>().SetInteger("speed", -1);
+                        gameObject.GetComponent<Animator>().SetInteger("speed", 2);
                     }
                     else
                     {
-                        gameObject.GetComponent<Animator>().SetInteger("speed", 1);
+                        gameObject.GetComponent<Animator>().SetInteger("speed", -2);
                     }
                 }
             }
             else if (xSpeed > 0)
             {
-                if (Input.mousePosition.y < bottom)
+                if (gameObject.transform.eulerAngles.y >= 75.0f && gameObject.transform.eulerAngles.y <= 105.0f)
                 {
-                    gameObject.GetComponent<Animator>().SetInteger("speed", 2);
+                    gameObject.GetComponent<Animator>().SetInteger("speed", 1);
                 }
-                else if (Input.mousePosition.y > top)
+                else if (gameObject.transform.eulerAngles.y >= 255.0f && gameObject.transform.eulerAngles.y <= 285.0f)
                 {
-                    gameObject.GetComponent<Animator>().SetInteger("speed", -2);
+                    gameObject.GetComponent<Animator>().SetInteger("speed", -1);
                 }
                 else
                 {
-                    if (Input.mousePosition.x >= Screen.width / 2.0f)
+                    if (gameObject.transform.eulerAngles.y <= 90.0f || gameObject.transform.eulerAngles.y >= 270.0f)
                     {
-                        gameObject.GetComponent<Animator>().SetInteger("speed", 1);
+                        gameObject.GetComponent<Animator>().SetInteger("speed", 2);
                     }
                     else
                     {
-                        gameObject.GetComponent<Animator>().SetInteger("speed", -1);
+                        gameObject.GetComponent<Animator>().SetInteger("speed", -2);
                     }
                 }
             }
             else if (xSpeed < 0)
             {
-                if (Input.mousePosition.y < bottom)
+                if (gameObject.transform.eulerAngles.y >= 75.0f && gameObject.transform.eulerAngles.y <= 105.0f)
                 {
-                    gameObject.GetComponent<Animator>().SetInteger("speed", -2);
+                    gameObject.GetComponent<Animator>().SetInteger("speed", -1);
                 }
-                else if (Input.mousePosition.y > top)
+                else if (gameObject.transform.eulerAngles.y >= 255.0f && gameObject.transform.eulerAngles.y <= 285.0f)
                 {
-                    gameObject.GetComponent<Animator>().SetInteger("speed", 2);
+                    gameObject.GetComponent<Animator>().SetInteger("speed", 1);
                 }
                 else
                 {
-                    if (Input.mousePosition.x >= Screen.width / 2.0f)
+                    if (gameObject.transform.eulerAngles.y <= 90.0f || gameObject.transform.eulerAngles.y >= 270.0f)
                     {
-                        gameObject.GetComponent<Animator>().SetInteger("speed", -1);
+                        gameObject.GetComponent<Animator>().SetInteger("speed", 2);
                     }
                     else
                     {
-                        gameObject.GetComponent<Animator>().SetInteger("speed", 1);
+                        gameObject.GetComponent<Animator>().SetInteger("speed", -2);
                     }
                 }
             }
