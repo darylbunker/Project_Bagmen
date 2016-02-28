@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 9074fb8a3a99c914e8417d4eb517da30
-timeCreated: 1453147939
+guid: acf79ca8b7b55d642971c88678d3a13e
+timeCreated: 1452988733
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
@@ -141,9 +141,8 @@ ModelImporter:
     400130: mixamorig:Spine1
     400132: mixamorig:Spine2
     400134: //RootNode
-    7400000: idle
+    7400000: picking_up
     9500000: //RootNode
-    11100000: //RootNode
   materials:
     importMaterials: 1
     materialName: 0
@@ -158,7 +157,7 @@ ModelImporter:
     animationImportWarnings: 
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
-    animationCompression: 3
+    animationCompression: 1
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
@@ -166,17 +165,17 @@ ModelImporter:
     extraExposedTransformPaths: []
     clipAnimations:
     - serializedVersion: 16
-      name: idle
+      name: picking_up
       takeName: mixamo.com
-      firstFrame: 0
-      lastFrame: 323
+      firstFrame: 60
+      lastFrame: 145
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 1
+      loopTime: 0
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -363,7 +362,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    rootMotionBoneName: mixamorig:Hips
+    rootMotionBoneName: 
     hasTranslationDoF: 0
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   animationType: 2

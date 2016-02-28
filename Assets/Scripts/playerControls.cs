@@ -2,12 +2,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
+using RAIN.Core;
 
 public class playerControls : MonoBehaviour {
 
 
     [SerializeField] private float movementSpeed = 10.0f;
-    private float top, bottom, left, right;
     private string playerState = "";
     private GameObject cursor;
     private GameObject rightHand;
@@ -20,10 +20,7 @@ public class playerControls : MonoBehaviour {
 
         cursor = GameObject.FindWithTag("Cursor");
         rightHand = GameObject.Find("RightHandPos");
-        top = (Screen.height / 2) + (Screen.height / 10);
-        bottom = (Screen.height / 2) - (Screen.height / 10);
-        right = (Screen.width / 2) + (Screen.width / 10);
-        left = (Screen.width / 2) - (Screen.width / 10);
+        rightHand.gameObject.GetComponent<BoxCollider>().enabled = false;
 
     }
 
@@ -52,6 +49,15 @@ public class playerControls : MonoBehaviour {
         gameObject.GetComponent<Animator>().SetInteger("hit", 1);
         StartCoroutine(RecoverFromStun());
 
+        foreach (GameObject enemies in GameObject.FindGameObjectsWithTag("Player"))
+        {
+            if (enemies.name == "enemy_v2")
+            {
+                AIRig enemyRig = enemies.GetComponentInChildren<AIRig>();
+                enemyRig.AI.WorkingMemory.SetItem<bool>("playerDown", true);
+            }
+        }
+
     }
 
 
@@ -60,6 +66,16 @@ public class playerControls : MonoBehaviour {
 
         yield return new WaitForSeconds(4.0f);
         gameObject.GetComponent<Animator>().SetInteger("hit", 0);
+
+        foreach (GameObject enemies in GameObject.FindGameObjectsWithTag("Player"))
+        {
+            if (enemies.name == "enemy_v2")
+            {
+                AIRig enemyRig = enemies.GetComponentInChildren<AIRig>();
+                enemyRig.AI.WorkingMemory.SetItem<bool>("playerDown", false);
+            }
+        }
+
         yield return new WaitForSeconds(2.5f);
         playerState = "";
 
@@ -71,7 +87,7 @@ public class playerControls : MonoBehaviour {
 
         yield return new WaitForSeconds(time);
         gameObject.GetComponent<Animator>().SetInteger("attack", 0);
-
+        rightHand.GetComponent<BoxCollider>().enabled = false;
     }
 
 
@@ -169,6 +185,10 @@ public class playerControls : MonoBehaviour {
         {
             DetermineWeapon(hit.gameObject, true);
         }
+        else if (hit.name == "EnemyRightHandPos")
+        {
+            Stunned();
+        }
 
     }
 
@@ -224,17 +244,17 @@ public class playerControls : MonoBehaviour {
         {
             if (ySpeed > 0)
             {
-                if ((gameObject.transform.eulerAngles.y >= 345.0f) || (gameObject.transform.eulerAngles.y <= 15.0f))
+                if ((gameObject.transform.localEulerAngles.y >= 345.0f) || (gameObject.transform.localEulerAngles.y <= 15.0f))
                 {
                     gameObject.GetComponent<Animator>().SetInteger("speed", 1);
                 }
-                else if (gameObject.transform.eulerAngles.y >= 165.0f && gameObject.transform.eulerAngles.y <= 195.0f)
+                else if (gameObject.transform.localEulerAngles.y >= 165.0f && gameObject.transform.localEulerAngles.y <= 195.0f)
                 {
                     gameObject.GetComponent<Animator>().SetInteger("speed", -1);
                 }
                 else
                 {
-                    if (gameObject.transform.eulerAngles.y <= 180.0f)
+                    if (gameObject.transform.localEulerAngles.y <= 180.0f)
                     {
                         gameObject.GetComponent<Animator>().SetInteger("speed", 2);
                     }
@@ -246,17 +266,17 @@ public class playerControls : MonoBehaviour {
             }
             else if (ySpeed < 0)
             {
-                if ((gameObject.transform.eulerAngles.y >= 345.0f) || (gameObject.transform.eulerAngles.y <= 15.0f))
+                if ((gameObject.transform.localEulerAngles.y >= 345.0f) || (gameObject.transform.localEulerAngles.y <= 15.0f))
                 {
                     gameObject.GetComponent<Animator>().SetInteger("speed", -1);
                 }
-                else if (gameObject.transform.eulerAngles.y >= 165.0f && gameObject.transform.eulerAngles.y <= 195.0f)
+                else if (gameObject.transform.localEulerAngles.y >= 165.0f && gameObject.transform.localEulerAngles.y <= 195.0f)
                 {
                     gameObject.GetComponent<Animator>().SetInteger("speed", 1);
                 }
                 else
                 {
-                    if (gameObject.transform.eulerAngles.y <= 180.0f)
+                    if (gameObject.transform.localEulerAngles.y <= 180.0f)
                     {
                         gameObject.GetComponent<Animator>().SetInteger("speed", 2);
                     }
@@ -268,17 +288,17 @@ public class playerControls : MonoBehaviour {
             }
             else if (xSpeed > 0)
             {
-                if (gameObject.transform.eulerAngles.y >= 75.0f && gameObject.transform.eulerAngles.y <= 105.0f)
+                if (gameObject.transform.localEulerAngles.y >= 75.0f && gameObject.transform.localEulerAngles.y <= 105.0f)
                 {
                     gameObject.GetComponent<Animator>().SetInteger("speed", 1);
                 }
-                else if (gameObject.transform.eulerAngles.y >= 255.0f && gameObject.transform.eulerAngles.y <= 285.0f)
+                else if (gameObject.transform.localEulerAngles.y >= 255.0f && gameObject.transform.localEulerAngles.y <= 285.0f)
                 {
                     gameObject.GetComponent<Animator>().SetInteger("speed", -1);
                 }
                 else
                 {
-                    if (gameObject.transform.eulerAngles.y <= 90.0f || gameObject.transform.eulerAngles.y >= 270.0f)
+                    if (gameObject.transform.localEulerAngles.y <= 90.0f || gameObject.transform.localEulerAngles.y >= 270.0f)
                     {
                         gameObject.GetComponent<Animator>().SetInteger("speed", 2);
                     }
@@ -290,17 +310,17 @@ public class playerControls : MonoBehaviour {
             }
             else if (xSpeed < 0)
             {
-                if (gameObject.transform.eulerAngles.y >= 75.0f && gameObject.transform.eulerAngles.y <= 105.0f)
+                if (gameObject.transform.localEulerAngles.y >= 75.0f && gameObject.transform.localEulerAngles.y <= 105.0f)
                 {
                     gameObject.GetComponent<Animator>().SetInteger("speed", -1);
                 }
-                else if (gameObject.transform.eulerAngles.y >= 255.0f && gameObject.transform.eulerAngles.y <= 285.0f)
+                else if (gameObject.transform.localEulerAngles.y >= 255.0f && gameObject.transform.localEulerAngles.y <= 285.0f)
                 {
                     gameObject.GetComponent<Animator>().SetInteger("speed", 1);
                 }
                 else
                 {
-                    if (gameObject.transform.eulerAngles.y <= 90.0f || gameObject.transform.eulerAngles.y >= 270.0f)
+                    if (gameObject.transform.localEulerAngles.y <= 90.0f || gameObject.transform.localEulerAngles.y >= 270.0f)
                     {
                         gameObject.GetComponent<Animator>().SetInteger("speed", 2);
                     }
@@ -326,8 +346,9 @@ public class playerControls : MonoBehaviour {
         {
             if (selectedWeapon == null)
             {
+                rightHand.GetComponent<BoxCollider>().enabled = true;
                 gameObject.GetComponent<Animator>().SetInteger("attack", 1);
-                StartCoroutine(StopAttack(0.15f));
+                StartCoroutine(StopAttack(0.5f));
             }
             else
             {

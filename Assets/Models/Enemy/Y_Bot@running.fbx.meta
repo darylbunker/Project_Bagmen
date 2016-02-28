@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 9074fb8a3a99c914e8417d4eb517da30
-timeCreated: 1453147939
+guid: 5e21cdf70f0f38748ad89130c12c2028
+timeCreated: 1452988734
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
@@ -141,7 +141,7 @@ ModelImporter:
     400130: mixamorig:Spine1
     400132: mixamorig:Spine2
     400134: //RootNode
-    7400000: idle
+    7400000: running
     9500000: //RootNode
     11100000: //RootNode
   materials:
@@ -158,7 +158,7 @@ ModelImporter:
     animationImportWarnings: 
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
-    animationCompression: 3
+    animationCompression: 1
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
@@ -166,10 +166,10 @@ ModelImporter:
     extraExposedTransformPaths: []
     clipAnimations:
     - serializedVersion: 16
-      name: idle
+      name: running
       takeName: mixamo.com
       firstFrame: 0
-      lastFrame: 323
+      lastFrame: 17
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -363,10 +363,10 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    rootMotionBoneName: mixamorig:Hips
+    rootMotionBoneName: 
     hasTranslationDoF: 0
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 2
+  animationType: 1
   humanoidOversampling: 1
   additionalBone: 0
   userData: 
