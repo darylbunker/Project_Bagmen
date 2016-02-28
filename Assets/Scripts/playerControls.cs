@@ -3,11 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using RAIN.Core;
+using RAIN.Entities;
 
 public class playerControls : MonoBehaviour {
 
 
     [SerializeField] private float movementSpeed = 10.0f;
+    [SerializeField] private GameObject KO_Collider;
     private string playerState = "";
     private GameObject cursor;
     private GameObject rightHand;
@@ -42,12 +44,15 @@ public class playerControls : MonoBehaviour {
     }
 
 
-    public void Stunned ()
+    public IEnumerator Stunned ()
     {
 
-        playerState = "stunned";
         gameObject.GetComponent<Animator>().SetInteger("hit", 1);
         StartCoroutine(RecoverFromStun());
+
+        yield return new WaitForSeconds(1.0f);
+        playerState = "stunned";
+        KO_Collider.GetComponent<BoxCollider>().enabled = true;
 
         foreach (GameObject enemies in GameObject.FindGameObjectsWithTag("Player"))
         {
@@ -65,19 +70,24 @@ public class playerControls : MonoBehaviour {
     {
 
         yield return new WaitForSeconds(4.0f);
-        gameObject.GetComponent<Animator>().SetInteger("hit", 0);
 
-        foreach (GameObject enemies in GameObject.FindGameObjectsWithTag("Player"))
+        if (playerState == "stunned")
         {
-            if (enemies.name == "enemy_v2")
-            {
-                AIRig enemyRig = enemies.GetComponentInChildren<AIRig>();
-                enemyRig.AI.WorkingMemory.SetItem<bool>("playerDown", false);
-            }
-        }
+            gameObject.GetComponent<Animator>().SetInteger("hit", 0);
 
-        yield return new WaitForSeconds(2.5f);
-        playerState = "";
+            foreach (GameObject enemies in GameObject.FindGameObjectsWithTag("Player"))
+            {
+                if (enemies.name == "enemy_v2")
+                {
+                    AIRig enemyRig = enemies.GetComponentInChildren<AIRig>();
+                    enemyRig.AI.WorkingMemory.SetItem<bool>("playerDown", false);
+                }
+            }
+
+            yield return new WaitForSeconds(2.5f);
+            playerState = "";
+            KO_Collider.GetComponent<BoxCollider>().enabled = false;
+        }
 
     }
 
@@ -187,7 +197,27 @@ public class playerControls : MonoBehaviour {
         }
         else if (hit.name == "EnemyRightHandPos")
         {
-            Stunned();
+            if (playerState == "")
+            {
+                StartCoroutine(Stunned());
+            }
+            else if (playerState == "stunned")
+            {
+                playerState = "dead";
+
+                EntityRig playerRig = gameObject.GetComponentInChildren<EntityRig>();
+                playerRig.Entity.IsActive = false;
+
+                foreach (GameObject enemies in GameObject.FindGameObjectsWithTag("Player"))
+                {
+                    if (enemies.name == "enemy_v2")
+                    {
+                        AIRig enemyRig = enemies.GetComponentInChildren<AIRig>();
+                        enemyRig.AI.WorkingMemory.SetItem<bool>("playerDead", true);
+                        enemyRig.AI.WorkingMemory.SetItem<bool>("inPursuit", false);
+                    }
+                }
+            }
         }
 
     }
