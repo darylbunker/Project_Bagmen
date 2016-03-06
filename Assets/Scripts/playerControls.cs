@@ -10,6 +10,8 @@ public class playerControls : MonoBehaviour {
 
     [SerializeField] private float movementSpeed = 10.0f;
     [SerializeField] private GameObject KO_Collider;
+    [SerializeField] private Material deadMat;
+    [SerializeField] private GameObject applyMat;
     private string playerState = "";
     private GameObject cursor;
     private GameObject rightHand;
@@ -38,7 +40,9 @@ public class playerControls : MonoBehaviour {
     public void Hit ()
     {
 
+        StopAllCoroutines();
         playerState = "dead";
+        applyMat.gameObject.GetComponent<Renderer>().material = deadMat;
         gameObject.GetComponent<Animator>().SetInteger("hit", 2);
 
     }
@@ -49,7 +53,7 @@ public class playerControls : MonoBehaviour {
 
         gameObject.GetComponent<Animator>().SetInteger("hit", 1);
         StartCoroutine(RecoverFromStun());
-
+        
         yield return new WaitForSeconds(1.0f);
         playerState = "stunned";
         KO_Collider.GetComponent<BoxCollider>().enabled = true;
@@ -84,7 +88,7 @@ public class playerControls : MonoBehaviour {
                 }
             }
 
-            yield return new WaitForSeconds(2.5f);
+            //yield return new WaitForSeconds(2.5f);
             playerState = "";
             KO_Collider.GetComponent<BoxCollider>().enabled = false;
         }
@@ -98,6 +102,9 @@ public class playerControls : MonoBehaviour {
         yield return new WaitForSeconds(time);
         gameObject.GetComponent<Animator>().SetInteger("attack", 0);
         rightHand.GetComponent<BoxCollider>().enabled = false;
+
+        if (selectedWeapon != null && selectedWeapon.gameObject.tag == "Melee")
+            selectedWeapon.gameObject.GetComponent<MeshCollider>().enabled = false;
     }
 
 
@@ -203,7 +210,8 @@ public class playerControls : MonoBehaviour {
             }
             else if (playerState == "stunned")
             {
-                playerState = "dead";
+                //playerState = "dead";
+                Hit();
 
                 EntityRig playerRig = gameObject.GetComponentInChildren<EntityRig>();
                 playerRig.Entity.IsActive = false;
@@ -390,11 +398,13 @@ public class playerControls : MonoBehaviour {
                 {
                     if (selectedWeapon.name != "knuckle")
                     {
+                        selectedWeapon.gameObject.GetComponent<MeshCollider>().enabled = true;
                         gameObject.GetComponent<Animator>().SetInteger("attack", 2);
                         StartCoroutine(StopAttack(0.5f));
                     }
                     else
                     {
+                        rightHand.GetComponent<BoxCollider>().enabled = true;
                         gameObject.GetComponent<Animator>().SetInteger("attack", 1);
                         StartCoroutine(StopAttack(0.15f));
                     }
@@ -403,6 +413,7 @@ public class playerControls : MonoBehaviour {
         }
         else if (Input.GetMouseButtonDown(1))
         {
+            rightHand.GetComponent<BoxCollider>().enabled = true;
             gameObject.GetComponent<Animator>().SetInteger("attack", 2);
             StartCoroutine(StopAttack(0.5f));
         }
