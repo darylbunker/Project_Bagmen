@@ -21,7 +21,8 @@ public class enemyControls : MonoBehaviour {
 
         if (hit.gameObject.name == "RightHandPos")
         {
-            enemyHealth.AI.WorkingMemory.SetItem<float>("health", 1);
+            enemyHealth.AI.WorkingMemory.SetItem<bool>("ko", true);
+            enemyHealth.AI.WorkingMemory.SetItem<bool>("inPursuit", false);
             enemyHealth.AI.WorkingMemory.SetItem<GameObject>("playerCharacter", player);
         }
 

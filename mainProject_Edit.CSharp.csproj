@@ -72,7 +72,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\AI\Actions\EnemyDestruct.cs" />
+    <Compile Include="Assets\AI\Actions\disableHandCollider.cs" />
+    <Compile Include="Assets\AI\Actions\enableHandCollider.cs" />
     <Compile Include="Assets\AI\Actions\pursuePlayer.cs" />
+    <Compile Include="Assets\AI\Actions\recoverHP.cs" />
     <Compile Include="Assets\Scripts\enemyControls.cs" />
     <Compile Include="Assets\Scripts\levelMenu.cs" />
     <Compile Include="Assets\Scripts\levelSelection.cs" />
