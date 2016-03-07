@@ -17,6 +17,9 @@ public class playerControls : MonoBehaviour {
     private GameObject rightHand;
     private GameObject weapon;
     private GameObject selectedWeapon;
+    [SerializeField] private GameObject shotgunFX;
+    [SerializeField] private GameObject handgunFX;
+    [SerializeField] private GameObject automaticFX;
 
 
     void Start()
@@ -190,6 +193,36 @@ public class playerControls : MonoBehaviour {
             {
                 weapon = null;
             }
+        }
+
+    }
+
+
+    private void FireWeapon ()
+    {
+
+        GameObject shootingPos = selectedWeapon.gameObject.transform.FindChild("effectPos").gameObject;
+
+        if (selectedWeapon.name == "m16")
+        {
+            GameObject projectile = Instantiate(automaticFX, shootingPos.transform.position, shootingPos.transform.rotation) as GameObject;
+            projectile.transform.parent = shootingPos.gameObject.transform;
+            //projectile.transform.localScale = new Vector3(0.25f, 0.25f, 0.25f);
+        }
+        else if (selectedWeapon.name == "shotgun")
+        {
+            GameObject projectile = Instantiate(shotgunFX, shootingPos.transform.position, shootingPos.transform.rotation) as GameObject;
+            projectile.transform.parent = shootingPos.gameObject.transform;
+        }
+        else if (selectedWeapon.name == "m1911")
+        {
+            GameObject projectile = Instantiate(handgunFX, shootingPos.transform.position, shootingPos.transform.rotation) as GameObject;
+            projectile.transform.parent = shootingPos.gameObject.transform;
+        }
+        else if (selectedWeapon.name == "revolver")
+        {
+            GameObject projectile = Instantiate(handgunFX, shootingPos.transform.position, shootingPos.transform.rotation) as GameObject;
+            projectile.transform.parent = shootingPos.gameObject.transform;
         }
 
     }
@@ -393,6 +426,7 @@ public class playerControls : MonoBehaviour {
                 if (gameObject.GetComponent<Animator>().GetBool("fireArm_Heavy") == true || gameObject.GetComponent<Animator>().GetBool("fireArm_Lite") == true)
                 {
                     //shoot projectile
+                    FireWeapon();
                 }
                 else if (gameObject.GetComponent<Animator>().GetBool("melee") == true)
                 {
