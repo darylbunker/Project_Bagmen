@@ -413,6 +413,11 @@ public class playerControls : MonoBehaviour {
 	void Update () 
 	{
 
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Debug.Break();
+        }
+
         if (Input.GetMouseButtonDown(0))
         {
             if (selectedWeapon == null)
@@ -426,7 +431,7 @@ public class playerControls : MonoBehaviour {
                 if (gameObject.GetComponent<Animator>().GetBool("fireArm_Heavy") == true || gameObject.GetComponent<Animator>().GetBool("fireArm_Lite") == true)
                 {
                     //shoot projectile
-                    FireWeapon();
+                    //FireWeapon();
                 }
                 else if (gameObject.GetComponent<Animator>().GetBool("melee") == true)
                 {

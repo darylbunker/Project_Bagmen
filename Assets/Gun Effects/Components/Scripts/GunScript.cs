@@ -25,7 +25,7 @@ public class GunScript : MonoBehaviour {
 	public GameObject lightFlash;
 	[Range(1f,4f)]
 	public float lightIntensity;
-	[Range(15f,75f)]
+	[Range(0f,15f)]
 	public float lightRange;
 
 	[Header("Particle systems")]
@@ -135,73 +135,83 @@ public class GunScript : MonoBehaviour {
 	}
 
 	void Update () {
-		 
-		//Audio pitch matches timescale, good for slowmotion effects
-		GetComponent<AudioSource> ().pitch = Time.timeScale;							            
 
-		if (bulletsLeft < 1) {															
-			bulletsLeft = 0;
-			outOfAmmo = true;
-		}
+        if (gameObject.transform.root.gameObject.name == "player")
+        {
+            //Audio pitch matches timescale, good for slowmotion effects
+            GetComponent<AudioSource>().pitch = Time.timeScale;
 
-		//Play dryfire audio if out of ammo
-		if (Input.GetMouseButtonDown (0) && outOfAmmo == true) {						
-			dryFireSound.Play ();
-		}
+            if (bulletsLeft < 1)
+            {
+                bulletsLeft = 0;
+                outOfAmmo = true;
+            }
 
-		//If auto is true, shoot when left click is held down
-		if (Input.GetMouseButton (0) && auto == true) {									
-			if (Time.time - lastFired > 1 / fireRate && outOfAmmo == false) {
-				lastFired = Time.time;		
-				
-				StartCoroutine (Shoot ());
-				StartCoroutine (CasingEject ());
+            //Play dryfire audio if out of ammo
+            if (Input.GetMouseButtonDown(0) && outOfAmmo == true)
+            {
+                dryFireSound.Play();
+            }
 
-				bulletsLeft -= 1;
-				
-				/*RaycastHit hit;
-				Ray bullet = new Ray (transform.position, transform.right);
-				if (Physics.Raycast (bullet, out hit, shootDistance)) {
+            if (Input.GetMouseButton(0) && auto == true)
+            {
+                if (Time.time - lastFired > 1 / fireRate && outOfAmmo == false)
+                {
+                    lastFired = Time.time;
 
-					//Detect raycast hit here
-					hit.rigidbody.AddForce(bullet.direction * bulletPower);
-				}*/
+                    StartCoroutine(Shoot());
+                    StartCoroutine(CasingEject());
 
-				if (shotgun == true) {
-					shotgunSparks.Play();						
-			}}
-		}
+                    bulletsLeft -= 1;
 
-		//If semi is true, shoot once when left click is pressed
-		if (Input.GetMouseButtonDown (0) && semi == true) {								
-			if (Time.time - lastFired > 1 / fireRate && outOfAmmo == false) {
-				lastFired = Time.time;		
-				
-				StartCoroutine (Shoot ());
-				StartCoroutine (CasingEject ());
-				
-				bulletsLeft -= 1;
-				
-				RaycastHit hit;
-				Ray bullet = new Ray (transform.position, transform.right);
-				if (Physics.Raycast (bullet, out hit, shootDistance)) {
+                    /*RaycastHit hit;
+                    Ray bullet = new Ray (transform.position, transform.right);
+                    if (Physics.Raycast (bullet, out hit, shootDistance)) {
 
-					//Detect raycast hit here
-					hit.rigidbody.AddForce(bullet.direction * bulletPower);
-				}
+                        //Detect raycast hit here
+                        hit.rigidbody.AddForce(bullet.direction * bulletPower);
+                    }*/
 
-				if (shotgun == true) {
-					shotgunSparks.Play();						
-			}}
-		}
+                    if (shotgun == true)
+                    {
+                        shotgunSparks.Play();
+                    }
+                }
+            }
+            else if (Input.GetMouseButtonDown(0) && semi == true)
+            {
+                if (Time.time - lastFired > 1 / fireRate && outOfAmmo == false)
+                {
+                    lastFired = Time.time;
+
+                    StartCoroutine(Shoot());
+                    StartCoroutine(CasingEject());
+
+                    bulletsLeft -= 1;
+
+                    /*RaycastHit hit;
+                    Ray bullet = new Ray (transform.position, transform.right);
+                    if (Physics.Raycast (bullet, out hit, shootDistance)) {
+
+                        //Detect raycast hit here
+                        hit.rigidbody.AddForce(bullet.direction * bulletPower);
+                    }*/
+
+                    if (shotgun == true)
+                    {
+                        shotgunSparks.Play();
+                    }
+                }
+            }
+        }
 	
 		//Reload when R is pressed
-		if (Input.GetKeyDown (KeyCode.R)) {						
+		/*if (Input.GetKeyDown (KeyCode.R)) {						
 			StartCoroutine (Reload ());
-		}
+		}*/
 
 		//Press Q to toggle between semi and auto mode
-		if (semiAutomatic == true && auto == true && 			
+		/*if (semiAutomatic == true && auto == true && 			
 		    		Input.GetKeyDown (KeyCode.Q)) {
 
 			auto = false;
@@ -214,5 +224,5 @@ public class GunScript : MonoBehaviour {
 			auto = true;
 			semi = false;
 			//(Optional)Play switching audio here
-	}}
+	}*/}
 }
