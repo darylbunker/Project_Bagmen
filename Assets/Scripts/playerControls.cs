@@ -428,12 +428,12 @@ public class playerControls : MonoBehaviour {
             }
             else
             {
-                if (gameObject.GetComponent<Animator>().GetBool("fireArm_Heavy") == true || gameObject.GetComponent<Animator>().GetBool("fireArm_Lite") == true)
+                /*if (gameObject.GetComponent<Animator>().GetBool("fireArm_Heavy") == true || gameObject.GetComponent<Animator>().GetBool("fireArm_Lite") == true)
                 {
                     //shoot projectile
                     //FireWeapon();
                 }
-                else if (gameObject.GetComponent<Animator>().GetBool("melee") == true)
+                else*/ if (gameObject.GetComponent<Animator>().GetBool("melee") == true)
                 {
                     if (selectedWeapon.name != "knuckle")
                     {

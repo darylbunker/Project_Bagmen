@@ -53,7 +53,9 @@ public class GunScript : MonoBehaviour {
 	[Header("Clip")]
 	public float clipSize;				
 	public float bulletsLeft;			
-	bool outOfAmmo;						
+	bool outOfAmmo;
+    [SerializeField]
+    private GameObject bulletPrefab;						
 
 	[Header("Firerate and power")]
 	public float fireRate;				
@@ -111,9 +113,17 @@ public class GunScript : MonoBehaviour {
 		gunSmoke.Play ();
 		heatParticles.Play ();
 
-		shootSound.Play ();	
-		
-		yield return new WaitForSeconds (.01f);
+		shootSound.Play ();
+
+        if (shotgun == false)
+        {
+            GameObject tempBullet = Instantiate(bulletPrefab, this.gameObject.transform.parent.transform.position, this.gameObject.transform.parent.transform.rotation) as GameObject;
+            tempBullet.transform.parent = this.gameObject.transform.parent.gameObject.transform;
+            tempBullet.gameObject.transform.localEulerAngles = new Vector3(90.0f, 0.0f, 0.0f);
+            //Debug.Break();
+        }	
+
+        yield return new WaitForSeconds (.01f);
 
 		lightFlash.GetComponent<Light> ().enabled = false;			
 		muzzleFlash.GetComponent<SpriteRenderer> ().enabled = false;
