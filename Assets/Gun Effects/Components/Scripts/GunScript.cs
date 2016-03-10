@@ -165,6 +165,16 @@ public class GunScript : MonoBehaviour {
 		outOfAmmo = false;
 	}
 
+    
+    public void EnemyShoot ()
+    {
+
+        StartCoroutine(Shoot());
+        StartCoroutine(CasingEject());
+
+    }
+
+
 	void Update () {
 
         if (gameObject.transform.root.gameObject.name == "player")
@@ -195,14 +205,6 @@ public class GunScript : MonoBehaviour {
 
                     bulletsLeft -= 1;
 
-                    /*RaycastHit hit;
-                    Ray bullet = new Ray (transform.position, transform.right);
-                    if (Physics.Raycast (bullet, out hit, shootDistance)) {
-
-                        //Detect raycast hit here
-                        hit.rigidbody.AddForce(bullet.direction * bulletPower);
-                    }*/
-
                     if (shotgun == true)
                     {
                         shotgunSparks.Play();
@@ -219,14 +221,6 @@ public class GunScript : MonoBehaviour {
                     StartCoroutine(CasingEject());
 
                     bulletsLeft -= 1;
-
-                    /*RaycastHit hit;
-                    Ray bullet = new Ray (transform.position, transform.right);
-                    if (Physics.Raycast (bullet, out hit, shootDistance)) {
-
-                        //Detect raycast hit here
-                        hit.rigidbody.AddForce(bullet.direction * bulletPower);
-                    }*/
 
                     if (shotgun == true)
                     {

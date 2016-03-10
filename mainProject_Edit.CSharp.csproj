@@ -76,6 +76,7 @@
     <Compile Include="Assets\AI\Actions\enableHandCollider.cs" />
     <Compile Include="Assets\AI\Actions\pursuePlayer.cs" />
     <Compile Include="Assets\AI\Actions\recoverHP.cs" />
+    <Compile Include="Assets\AI\Actions\shootWeapon.cs" />
     <Compile Include="Assets\Gun Effects\Components\Scripts\CasingScript.cs" />
     <Compile Include="Assets\Gun Effects\Components\Scripts\GunScript.cs" />
     <Compile Include="Assets\Scripts\bulletScript.cs" />

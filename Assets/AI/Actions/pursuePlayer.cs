@@ -16,7 +16,6 @@ public class pursuePlayer : RAINAction
     {
         GameObject mainPlayer = GameObject.Find("player");
         ai.WorkingMemory.SetItem<GameObject>("varMainPlayer", mainPlayer);
-        ai.WorkingMemory.SetItem<bool>("inPursuit", true);
 
         return ActionResult.SUCCESS;
     }
