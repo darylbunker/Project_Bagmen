@@ -55,13 +55,17 @@ public class GunScript : MonoBehaviour {
 	public float bulletsLeft;			
 	bool outOfAmmo;
     [SerializeField]
-    private GameObject bulletPrefab;						
+    private GameObject automaticBulletPrefab;
+    [SerializeField]
+    private GameObject bulletPrefab;
+    [SerializeField]
+    private GameObject shotgunBulletPrefab;						
 
 	[Header("Firerate and power")]
 	public float fireRate;				
 	float lastFired;
 	public float shootDistance;			
-	public float bulletPower;			
+	public float bulletPower;		
 
 
 	//Makes sure no muzzleflashes are showing at start
@@ -115,13 +119,30 @@ public class GunScript : MonoBehaviour {
 
 		shootSound.Play ();
 
-        if (shotgun == false)
+        if (shotgun == true)
+        {
+            GameObject tempBullet = Instantiate(shotgunBulletPrefab, this.gameObject.transform.parent.transform.position, this.gameObject.transform.parent.transform.rotation) as GameObject;
+            tempBullet.transform.parent = this.gameObject.transform.parent.gameObject.transform;
+            tempBullet.gameObject.transform.localEulerAngles = new Vector3(0.0f, 0.0f, 90.0f);
+            tempBullet.transform.parent = null;
+            tempBullet.transform.position = new Vector3(transform.position.x, 1.0f, transform.position.z);
+        }
+        else if (auto == true)
+        {
+            GameObject tempBullet = Instantiate(automaticBulletPrefab, this.gameObject.transform.parent.transform.position, this.gameObject.transform.parent.transform.rotation) as GameObject;
+            tempBullet.transform.parent = this.gameObject.transform.parent.gameObject.transform;
+            tempBullet.gameObject.transform.localEulerAngles = new Vector3(90.0f, 0.0f, 0.0f);
+            tempBullet.transform.parent = null;
+            tempBullet.transform.position = new Vector3(transform.position.x, 1.0f, transform.position.z);
+        }
+        else
         {
             GameObject tempBullet = Instantiate(bulletPrefab, this.gameObject.transform.parent.transform.position, this.gameObject.transform.parent.transform.rotation) as GameObject;
             tempBullet.transform.parent = this.gameObject.transform.parent.gameObject.transform;
             tempBullet.gameObject.transform.localEulerAngles = new Vector3(90.0f, 0.0f, 0.0f);
-            //Debug.Break();
-        }	
+            tempBullet.transform.parent = null;
+            tempBullet.transform.position = new Vector3(transform.position.x, 1.0f, transform.position.z);
+        }
 
         yield return new WaitForSeconds (.01f);
 

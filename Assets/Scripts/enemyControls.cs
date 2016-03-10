@@ -135,6 +135,12 @@ public class enemyControls : MonoBehaviour {
                 }
             }
         }
+        else if (hit.gameObject.tag == "Bullet")
+        {
+            enemyHealth.AI.WorkingMemory.SetItem<int>("health", 0);
+            enemyHealth.AI.WorkingMemory.SetItem<bool>("ko", false);
+            applyMat.gameObject.GetComponent<Renderer>().material = deadMat;
+        }
 
     }
 	
