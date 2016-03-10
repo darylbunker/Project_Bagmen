@@ -33,6 +33,11 @@ public class bulletScript : MonoBehaviour {
         {
             Destroy(this.gameObject);
         }
+        else if (hit.gameObject.layer == 8)
+        {
+            Destroy(this.gameObject);
+            GameObject.Find("player").GetComponent<playerControls>().Hit();
+        }
 
     }
 

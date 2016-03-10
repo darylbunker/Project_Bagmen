@@ -48,6 +48,19 @@ public class playerControls : MonoBehaviour {
         applyMat.gameObject.GetComponent<Renderer>().material = deadMat;
         gameObject.GetComponent<Animator>().SetInteger("hit", 2);
 
+        EntityRig playerRig = gameObject.GetComponentInChildren<EntityRig>();
+        playerRig.Entity.IsActive = false;
+
+        foreach (GameObject enemies in GameObject.FindGameObjectsWithTag("Player"))
+        {
+            if (enemies.name == "enemy_v2")
+            {
+                AIRig enemyRig = enemies.GetComponentInChildren<AIRig>();
+                enemyRig.AI.WorkingMemory.SetItem<bool>("playerDead", true);
+                enemyRig.AI.WorkingMemory.SetItem<bool>("inPursuit", false);
+            }
+        }
+
     }
 
 
@@ -245,19 +258,6 @@ public class playerControls : MonoBehaviour {
             {
                 //playerState = "dead";
                 Hit();
-
-                EntityRig playerRig = gameObject.GetComponentInChildren<EntityRig>();
-                playerRig.Entity.IsActive = false;
-
-                foreach (GameObject enemies in GameObject.FindGameObjectsWithTag("Player"))
-                {
-                    if (enemies.name == "enemy_v2")
-                    {
-                        AIRig enemyRig = enemies.GetComponentInChildren<AIRig>();
-                        enemyRig.AI.WorkingMemory.SetItem<bool>("playerDead", true);
-                        enemyRig.AI.WorkingMemory.SetItem<bool>("inPursuit", false);
-                    }
-                }
             }
         }
 
