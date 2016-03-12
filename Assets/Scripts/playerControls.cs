@@ -17,9 +17,7 @@ public class playerControls : MonoBehaviour {
     private GameObject rightHand;
     private GameObject weapon;
     private GameObject selectedWeapon;
-    [SerializeField] private GameObject shotgunFX;
-    [SerializeField] private GameObject handgunFX;
-    [SerializeField] private GameObject automaticFX;
+    [SerializeField] private GameObject weaponCollider;
 
 
     void Start()
@@ -69,7 +67,8 @@ public class playerControls : MonoBehaviour {
 
         gameObject.GetComponent<Animator>().SetInteger("hit", 1);
         StartCoroutine(RecoverFromStun());
-        
+        weaponCollider.GetComponent<BoxCollider>().enabled = false;
+
         yield return new WaitForSeconds(1.0f);
         playerState = "stunned";
         KO_Collider.GetComponent<BoxCollider>().enabled = true;
@@ -107,6 +106,7 @@ public class playerControls : MonoBehaviour {
             //yield return new WaitForSeconds(2.5f);
             playerState = "";
             KO_Collider.GetComponent<BoxCollider>().enabled = false;
+            weaponCollider.GetComponent<BoxCollider>().enabled = true;
         }
 
     }
@@ -168,11 +168,15 @@ public class playerControls : MonoBehaviour {
                 }
                 else if (pickUp.name == "m1911")
                 {
+                    rightHand.gameObject.transform.localEulerAngles = new Vector3(12.0f, 0.0f, 0.0f);
+
                     pickUp.gameObject.transform.localEulerAngles = new Vector3(90.0f, 270.0f, 0.0f);
                     pickUp.gameObject.transform.localPosition = new Vector3(0.0f, 0.12f, 0.0f);
                 }
                 else if (pickUp.name == "revolver")
                 {
+                    rightHand.gameObject.transform.localEulerAngles = new Vector3(12.0f, 0.0f, 0.0f);
+
                     pickUp.gameObject.transform.localEulerAngles = new Vector3(90.0f, 270.0f, 0.0f);
                     pickUp.gameObject.transform.localPosition = new Vector3(0.0f, 0.015f, 0.0f);
                 }
@@ -206,36 +210,6 @@ public class playerControls : MonoBehaviour {
             {
                 weapon = null;
             }
-        }
-
-    }
-
-
-    private void FireWeapon ()
-    {
-
-        GameObject shootingPos = selectedWeapon.gameObject.transform.FindChild("effectPos").gameObject;
-
-        if (selectedWeapon.name == "m16")
-        {
-            GameObject projectile = Instantiate(automaticFX, shootingPos.transform.position, shootingPos.transform.rotation) as GameObject;
-            projectile.transform.parent = shootingPos.gameObject.transform;
-            //projectile.transform.localScale = new Vector3(0.25f, 0.25f, 0.25f);
-        }
-        else if (selectedWeapon.name == "shotgun")
-        {
-            GameObject projectile = Instantiate(shotgunFX, shootingPos.transform.position, shootingPos.transform.rotation) as GameObject;
-            projectile.transform.parent = shootingPos.gameObject.transform;
-        }
-        else if (selectedWeapon.name == "m1911")
-        {
-            GameObject projectile = Instantiate(handgunFX, shootingPos.transform.position, shootingPos.transform.rotation) as GameObject;
-            projectile.transform.parent = shootingPos.gameObject.transform;
-        }
-        else if (selectedWeapon.name == "revolver")
-        {
-            GameObject projectile = Instantiate(handgunFX, shootingPos.transform.position, shootingPos.transform.rotation) as GameObject;
-            projectile.transform.parent = shootingPos.gameObject.transform;
         }
 
     }
@@ -413,10 +387,10 @@ public class playerControls : MonoBehaviour {
 	void Update () 
 	{
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        /*if (Input.GetKeyDown(KeyCode.Space))
         {
-            Debug.Break();
-        }
+            
+        }*/
 
         if (Input.GetMouseButtonDown(0))
         {
@@ -490,6 +464,8 @@ public class playerControls : MonoBehaviour {
                 {
                     GameObject newWeapon = weapon.gameObject;
 
+                    rightHand.gameObject.transform.localEulerAngles = new Vector3(0.0f, 0.0f, 0.0f);
+
                     if (selectedWeapon.tag == "Melee")
                     {
                         gameObject.GetComponent<Animator>().SetBool("hasWeapon", false);
@@ -556,6 +532,8 @@ public class playerControls : MonoBehaviour {
         {
             if (selectedWeapon != null)
             {
+                rightHand.gameObject.transform.localEulerAngles = new Vector3(0.0f, 0.0f, 0.0f);
+
                 if (selectedWeapon.tag == "Melee")
                 {
                     selectedWeapon.gameObject.transform.parent = null;

@@ -12,9 +12,7 @@ public class enemyControls : MonoBehaviour {
     [SerializeField] private GameObject applyMat;
     private GameObject player;
     public bool enemyDown = false;
-    [SerializeField] private GameObject shotgunFX;
-    [SerializeField] private GameObject handgunFX;
-    [SerializeField] private GameObject automaticFX;
+
 
     void Start ()
 	{
@@ -57,6 +55,7 @@ public class enemyControls : MonoBehaviour {
             if (pickUp.name == "m16")
             {
                 enemyHealth.AI.WorkingMemory.SetItem<bool>("hasHeavyFirearm", true);
+                enemyHealth.AI.WorkingMemory.SetItem<string>("heavyGun", "shotgun");
 
                 pickUp.gameObject.transform.localEulerAngles = new Vector3(270.0f, 0.0f, 90.0f);
                 pickUp.gameObject.transform.localPosition = new Vector3(0.15f, -0.25f, 0.0f);
@@ -64,6 +63,7 @@ public class enemyControls : MonoBehaviour {
             else if (pickUp.name == "shotgun")
             {
                 enemyHealth.AI.WorkingMemory.SetItem<bool>("hasHeavyFirearm", true);
+                enemyHealth.AI.WorkingMemory.SetItem<string>("heavyGun", "shotgun");
 
                 pickUp.gameObject.transform.localEulerAngles = new Vector3(180.0f, 0.0f, 90.0f);
                 pickUp.gameObject.transform.localPosition = new Vector3(-0.08f, 0.25f, 0.0f);
@@ -71,6 +71,7 @@ public class enemyControls : MonoBehaviour {
             else if (pickUp.name == "m1911")
             {
                 enemyHealth.AI.WorkingMemory.SetItem<bool>("hasLiteFirearm", true);
+                rightHand.gameObject.transform.localEulerAngles = new Vector3(12.0f, 0.0f, 0.0f);
 
                 pickUp.gameObject.transform.localEulerAngles = new Vector3(90.0f, 270.0f, 0.0f);
                 pickUp.gameObject.transform.localPosition = new Vector3(0.0f, 0.12f, 0.0f);
@@ -78,6 +79,7 @@ public class enemyControls : MonoBehaviour {
             else if (pickUp.name == "revolver")
             {
                 enemyHealth.AI.WorkingMemory.SetItem<bool>("hasLiteFirearm", true);
+                rightHand.gameObject.transform.localEulerAngles = new Vector3(12.0f, 0.0f, 0.0f);
 
                 pickUp.gameObject.transform.localEulerAngles = new Vector3(90.0f, 270.0f, 0.0f);
                 pickUp.gameObject.transform.localPosition = new Vector3(0.0f, 0.015f, 0.0f);
@@ -114,6 +116,8 @@ public class enemyControls : MonoBehaviour {
                 enemyHealth.AI.WorkingMemory.SetItem<int>("health", 0);
                 enemyHealth.AI.WorkingMemory.SetItem<bool>("ko", false);
                 applyMat.gameObject.GetComponent<Renderer>().material = deadMat;
+
+                //StartCoroutine(GameObject.Find("EnemySpawn").GetComponent<enemySpawn>().SpawnEnemy());
             }
         }
         else if (hit.gameObject.tag == "Melee")
@@ -132,6 +136,8 @@ public class enemyControls : MonoBehaviour {
                     enemyHealth.AI.WorkingMemory.SetItem<int>("health", 0);
                     enemyHealth.AI.WorkingMemory.SetItem<bool>("ko", false);
                     applyMat.gameObject.GetComponent<Renderer>().material = deadMat;
+
+                   //StartCoroutine(GameObject.Find("EnemySpawn").GetComponent<enemySpawn>().SpawnEnemy());
                 }
             }
         }
@@ -140,6 +146,8 @@ public class enemyControls : MonoBehaviour {
             enemyHealth.AI.WorkingMemory.SetItem<int>("health", 0);
             enemyHealth.AI.WorkingMemory.SetItem<bool>("ko", false);
             applyMat.gameObject.GetComponent<Renderer>().material = deadMat;
+
+            //StartCoroutine(GameObject.Find("EnemySpawn").GetComponent<enemySpawn>().SpawnEnemy());
         }
 
     }

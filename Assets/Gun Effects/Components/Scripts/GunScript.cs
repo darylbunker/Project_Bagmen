@@ -142,6 +142,7 @@ public class GunScript : MonoBehaviour {
             tempBullet.gameObject.transform.localEulerAngles = new Vector3(90.0f, 0.0f, 0.0f);
             tempBullet.transform.parent = null;
             tempBullet.transform.position = new Vector3(transform.position.x, 1.0f, transform.position.z);
+            //Debug.Break();
         }
 
         yield return new WaitForSeconds (.01f);

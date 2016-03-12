@@ -79,6 +79,7 @@
     <Compile Include="Assets\AI\Actions\shootWeapon.cs" />
     <Compile Include="Assets\Gun Effects\Components\Scripts\CasingScript.cs" />
     <Compile Include="Assets\Gun Effects\Components\Scripts\GunScript.cs" />
+    <Compile Include="Assets\Scripts\aiTest.cs" />
     <Compile Include="Assets\Scripts\bulletScript.cs" />
     <Compile Include="Assets\Scripts\enemyControls.cs" />
     <Compile Include="Assets\Scripts\levelMenu.cs" />

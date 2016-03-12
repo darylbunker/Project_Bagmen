@@ -14,8 +14,8 @@ public class pursuePlayer : RAINAction
 
     public override ActionResult Execute(RAIN.Core.AI ai)
     {
-        GameObject mainPlayer = GameObject.Find("player");
-        ai.WorkingMemory.SetItem<GameObject>("varMainPlayer", mainPlayer);
+        //GameObject mainPlayer = GameObject.Find("player");
+        //ai.WorkingMemory.SetItem<GameObject>("varMainPlayer", mainPlayer);
 
         return ActionResult.SUCCESS;
     }

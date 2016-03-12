@@ -48,7 +48,10 @@ public class bulletScript : MonoBehaviour {
         if (gameObject.name == "shotgunBullet(Clone)" || gameObject.name == "automaticBullet(Clone)")
             gameObject.GetComponent<Rigidbody>().AddRelativeForce(Vector3.up * 200.0f);
         else
+        {
             gameObject.GetComponent<Rigidbody>().AddRelativeForce(Vector3.down * 200.0f);
+            gameObject.transform.position = new Vector3(gameObject.transform.position.x, 1.0f, gameObject.transform.position.z);
+        }
 
     }
 	
