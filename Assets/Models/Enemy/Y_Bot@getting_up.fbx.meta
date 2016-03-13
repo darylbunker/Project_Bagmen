@@ -143,6 +143,7 @@ ModelImporter:
     400134: //RootNode
     7400000: getting_up
     9500000: //RootNode
+    11100000: //RootNode
   materials:
     importMaterials: 1
     materialName: 0
@@ -168,7 +169,7 @@ ModelImporter:
       name: getting_up
       takeName: mixamo.com
       firstFrame: 0
-      lastFrame: 65
+      lastFrame: 32
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -365,7 +366,7 @@ ModelImporter:
     rootMotionBoneName: 
     hasTranslationDoF: 0
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 2
+  animationType: 1
   humanoidOversampling: 1
   additionalBone: 0
   userData: 

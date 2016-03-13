@@ -15,7 +15,8 @@ public class EnemyDestruct : RAINAction
 
     public override ActionResult Execute(RAIN.Core.AI ai)
     {
-        MonoBehaviour.Destroy(ai.Body);
+        //MonoBehaviour.Destroy(ai.Body);
+        ai.WorkingMemory.SetItem<float>("health", -1.0f);
 
         return ActionResult.SUCCESS;
     }

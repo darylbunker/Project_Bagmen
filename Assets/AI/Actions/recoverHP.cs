@@ -18,8 +18,7 @@ public class recoverHP : RAINAction
         GameObject parentEnemy = ai.Body.transform.root.gameObject;
         parentEnemy.GetComponent<enemyControls>().enemyDown = false;
         parentEnemy.GetComponent<enemyControls>().KO_Collider.GetComponent<BoxCollider>().enabled = false;
-        //reset enemyDown to false on enemyControls
-        //disable KO_Collider on enemyControls
+
         return ActionResult.SUCCESS;
     }
 
